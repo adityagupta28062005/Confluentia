@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" 
+                  xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" 
+                  xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" 
+                  xmlns:di="http://www.omg.org/spec/DD/20100524/DI" 
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+                  id="Definitions_1b31ddcf-8bcf-48a6-8548-ee4be55f4b20" 
+                  targetNamespace="http://activiti.org/bpmn" 
+                  exporter="Process Map Generator" 
+                  exporterVersion="1.0">
+  <bpmn:process id="AP-001__Invoice_Processing_and_Approval" name="AP-001: Invoice Processing and Approval" isExecutable="false">
+        <bpmn:startEvent id="StartEvent_1" name="Invoice Received"/>
+    <bpmn:task id="step_1" name="Invoice Intake">
+      <bpmn:documentation>Invoices are received via corporate email or supplier portal. System logs a new entry and assigns a unique tracking number.</bpmn:documentation>
+    </bpmn:task>
+    <bpmn:task id="step_2" name="Initial Validation">
+      <bpmn:documentation>Analyst verifies invoice completeness and legibility (vendor name, invoice number, date, total amount).</bpmn:documentation>
+    </bpmn:task>
+    <bpmn:task id="step_3" name="Three-Way Match">
+      <bpmn:documentation>System cross-references invoice against PO and GRN. Discrepancies trigger a hold and manual review by AP Supervisor.</bpmn:documentation>
+    </bpmn:task>
+    <bpmn:task id="step_4" name="Threshold-Based Approval">
+      <bpmn:documentation>Invoice routing based on amount: &lt;$5,000 to department manager; $5,000-$25,000 to senior manager; &gt;$25,000 to Director of Finance.</bpmn:documentation>
+    </bpmn:task>
+    <bpmn:task id="step_5" name="Duplicate Check">
+      <bpmn:documentation>System checks invoice ID, vendor details, and amount against historical payments to identify duplicate payments.</bpmn:documentation>
+    </bpmn:task>
+    <bpmn:task id="step_6" name="Payment Processing">
+      <bpmn:documentation>Approved invoice is released to AP system for payment. Notification sent to vendor.</bpmn:documentation>
+    </bpmn:task>
+    <bpmn:exclusiveGateway id="gateway_1" name="Approval Routing"/>
+    <bpmn:endEvent id="EndEvent_1" name="Payment Processed"/>
+        <bpmn:sequenceFlow id="Flow_1" sourceRef="StartEvent_1" targetRef="step_1"/>
+    <bpmn:sequenceFlow id="Flow_2" sourceRef="step_1" targetRef="step_2"/>
+    <bpmn:sequenceFlow id="Flow_3" sourceRef="step_2" targetRef="step_3"/>
+    <bpmn:sequenceFlow id="Flow_4" sourceRef="step_3" targetRef="step_4"/>
+    <bpmn:sequenceFlow id="Flow_5" sourceRef="step_4" targetRef="step_5"/>
+    <bpmn:sequenceFlow id="Flow_6" sourceRef="step_5" targetRef="step_6"/>
+    <bpmn:sequenceFlow id="Flow_7" sourceRef="step_6" targetRef="gateway_1"/>
+    <bpmn:sequenceFlow id="Flow_8" sourceRef="gateway_1" targetRef="EndEvent_1"/>
+  </bpmn:process>
+    <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="AP-001__Invoice_Processing_and_Approval">
+            <bpmndi:BPMNShape id="StartEvent_1_di" bpmnElement="StartEvent_1">
+        <dc:Bounds x="150" y="150" width="36" height="36"/>
+        <bpmndi:BPMNLabel><dc:Bounds x="150" y="196" width="36" height="20"/></bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="step_1_di" bpmnElement="step_1">
+        <dc:Bounds x="350" y="150" width="100" height="80"/>
+        <bpmndi:BPMNLabel><dc:Bounds x="350" y="240" width="100" height="20"/></bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="step_2_di" bpmnElement="step_2">
+        <dc:Bounds x="550" y="150" width="100" height="80"/>
+        <bpmndi:BPMNLabel><dc:Bounds x="550" y="240" width="100" height="20"/></bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="step_3_di" bpmnElement="step_3">
+        <dc:Bounds x="750" y="150" width="100" height="80"/>
+        <bpmndi:BPMNLabel><dc:Bounds x="750" y="240" width="100" height="20"/></bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="step_4_di" bpmnElement="step_4">
+        <dc:Bounds x="950" y="150" width="100" height="80"/>
+        <bpmndi:BPMNLabel><dc:Bounds x="950" y="240" width="100" height="20"/></bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="step_5_di" bpmnElement="step_5">
+        <dc:Bounds x="1150" y="150" width="100" height="80"/>
+        <bpmndi:BPMNLabel><dc:Bounds x="1150" y="240" width="100" height="20"/></bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="step_6_di" bpmnElement="step_6">
+        <dc:Bounds x="1350" y="150" width="100" height="80"/>
+        <bpmndi:BPMNLabel><dc:Bounds x="1350" y="240" width="100" height="20"/></bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="gateway_1_di" bpmnElement="gateway_1">
+        <dc:Bounds x="1550" y="150" width="50" height="50"/>
+        <bpmndi:BPMNLabel><dc:Bounds x="1550" y="210" width="50" height="20"/></bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_1_di" bpmnElement="EndEvent_1">
+        <dc:Bounds x="1750" y="150" width="36" height="36"/>
+        <bpmndi:BPMNLabel><dc:Bounds x="1750" y="196" width="36" height="20"/></bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+            <bpmndi:BPMNEdge id="Flow_1_di" bpmnElement="Flow_1">
+        <di:waypoint x="0" y="0"/>
+        <di:waypoint x="0" y="0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_2_di" bpmnElement="Flow_2">
+        <di:waypoint x="0" y="0"/>
+        <di:waypoint x="0" y="0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_3_di" bpmnElement="Flow_3">
+        <di:waypoint x="0" y="0"/>
+        <di:waypoint x="0" y="0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_4_di" bpmnElement="Flow_4">
+        <di:waypoint x="0" y="0"/>
+        <di:waypoint x="0" y="0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_5_di" bpmnElement="Flow_5">
+        <di:waypoint x="0" y="0"/>
+        <di:waypoint x="0" y="0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_6_di" bpmnElement="Flow_6">
+        <di:waypoint x="0" y="0"/>
+        <di:waypoint x="0" y="0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_7_di" bpmnElement="Flow_7">
+        <di:waypoint x="0" y="0"/>
+        <di:waypoint x="0" y="0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_8_di" bpmnElement="Flow_8">
+        <di:waypoint x="0" y="0"/>
+        <di:waypoint x="0" y="0"/>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

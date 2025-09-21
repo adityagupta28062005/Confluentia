@@ -1,6 +1,6 @@
 class PromptTemplates {
-  static get systemPrompt() {
-    return `You are an expert business process analyst with deep expertise in:
+    static get systemPrompt() {
+        return `You are an expert business process analyst with deep expertise in:
 - Business Process Model and Notation (BPMN) 2.0
 - Risk management and control frameworks
 - Standard Operating Procedures (SOPs)
@@ -16,10 +16,10 @@ Key Guidelines:
 5. Identify controls as measures designed to mitigate risks
 6. Always return valid JSON format as specified
 7. Be thorough but concise in descriptions`;
-  }
+    }
 
-  static processExtractionPrompt(documentText) {
-    return `Analyze the following business document and extract all business processes.
+    static processExtractionPrompt(documentText) {
+        return `Analyze the following business document and extract all business processes.
 
 DOCUMENT TEXT:
 ${documentText}
@@ -76,10 +76,10 @@ IMPORTANT:
 - Identify clear decision points as gateways
 - Use sequential step IDs (step_1, step_2, etc.)
 - Return only valid JSON, no additional text`;
-  }
+    }
 
-  static get riskControlSystemPrompt() {
-    return `You are a risk management expert specializing in business process risk assessment and control design.
+    static get riskControlSystemPrompt() {
+        return `You are a risk management expert specializing in business process risk assessment and control design.
 
 Your expertise includes:
 - Operational risk identification
@@ -89,10 +89,10 @@ Your expertise includes:
 - Risk categorization frameworks
 
 Focus on identifying genuine business risks and their corresponding controls within process workflows.`;
-  }
+    }
 
-  static riskControlPrompt(processText, steps) {
-    return `Analyze the following business process and identify associated risks and controls.
+    static riskControlPrompt(processText, steps) {
+        return `Analyze the following business process and identify associated risks and controls.
 
 PROCESS CONTEXT:
 ${processText}
@@ -139,18 +139,18 @@ CONTROL TYPES:
 - Corrective: Respond to and correct risk events
 
 Return only valid JSON, no additional text.`;
-  }
+    }
 
-  static get stepEnhancementSystemPrompt() {
-    return `You are a business process optimization expert. Your role is to enhance and refine process steps to ensure they are:
+    static get stepEnhancementSystemPrompt() {
+        return `You are a business process optimization expert. Your role is to enhance and refine process steps to ensure they are:
 - Clear and actionable
 - Properly sequenced
 - Complete with all necessary details
 - Optimized for BPMN modeling`;
-  }
+    }
 
-  static stepEnhancementPrompt(steps) {
-    return `Enhance and refine the following process steps for optimal BPMN modeling:
+    static stepEnhancementPrompt(steps) {
+        return `Enhance and refine the following process steps for optimal BPMN modeling:
 
 CURRENT STEPS:
 ${JSON.stringify(steps, null, 2)}
@@ -190,14 +190,14 @@ Focus on:
 4. Ensuring logical flow sequence
 
 Return only valid JSON.`;
-  }
+    }
 
-  static get summarySystemPrompt() {
-    return `You are a business analyst expert at creating clear, concise process summaries for executive audiences.`;
-  }
+    static get summarySystemPrompt() {
+        return `You are a business analyst expert at creating clear, concise process summaries for executive audiences.`;
+    }
 
-  static summaryPrompt(processData) {
-    return `Create a high-level executive summary for this business process:
+    static summaryPrompt(processData) {
+        return `Create a high-level executive summary for this business process:
 
 PROCESS DATA:
 ${JSON.stringify(processData, null, 2)}
@@ -208,14 +208,14 @@ Write a 2-3 sentence summary that covers:
 3. Primary business value delivered
 
 Keep it professional and executive-friendly.`;
-  }
+    }
 
-  static get validationSystemPrompt() {
-    return `You are a process validation expert. Your role is to identify gaps, inconsistencies, and areas for improvement in business process definitions.`;
-  }
+    static get validationSystemPrompt() {
+        return `You are a process validation expert. Your role is to identify gaps, inconsistencies, and areas for improvement in business process definitions.`;
+    }
 
-  static validationPrompt(processData) {
-    return `Validate the following process definition and identify any issues:
+    static validationPrompt(processData) {
+        return `Validate the following process definition and identify any issues:
 
 PROCESS DATA:
 ${JSON.stringify(processData, null, 2)}
@@ -247,7 +247,7 @@ Check for:
 - BPMN modeling concerns
 
 Return only valid JSON.`;
-  }
+    }
 }
 
 module.exports = PromptTemplates;

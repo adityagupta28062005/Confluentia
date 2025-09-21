@@ -9,4 +9,7 @@ router.post('/json', exportController.exportAsJSON);
 // GET /api/export/bpmn/:processId - Export BPMN XML
 router.get('/bpmn/:processId', exportController.exportBPMN);
 
+// GET /api/export/document/:documentId - Export document results in target format
+router.get('/document/:documentId', exportController.exportDocumentResults);
+
 module.exports = router;

@@ -1,0 +1,156 @@
+{
+  "processName": "AP-001: Invoice Processing and Approval",
+  "description": "Manages the receipt, validation, and payment of all third-party invoices. Ensures payments are only made for valid, authorized goods and services, mitigating financial and operational risks.",
+  "activities": [
+    {
+      "id": "activity_1",
+      "name": "Invoice Intake",
+      "description": "Invoices are received via corporate email or supplier portal. System logs a new entry and assigns a unique tracking number.",
+      "type": "task",
+      "performer": "System"
+    },
+    {
+      "id": "activity_2",
+      "name": "Initial Validation",
+      "description": "Analyst verifies invoice completeness and legibility (vendor name, invoice number, date, total amount).",
+      "type": "task",
+      "performer": "Analyst"
+    },
+    {
+      "id": "activity_3",
+      "name": "Three-Way Match",
+      "description": "System cross-references invoice against PO and GRN. Discrepancies trigger a hold and manual review by AP Supervisor.",
+      "type": "task",
+      "performer": "System/AP Supervisor"
+    },
+    {
+      "id": "activity_4",
+      "name": "Threshold-Based Approval",
+      "description": "Invoice routing based on amount: <$5,000 to department manager; $5,000-$25,000 to senior manager; >$25,000 to Director of Finance.",
+      "type": "gateway",
+      "performer": "System/Managers"
+    },
+    {
+      "id": "activity_5",
+      "name": "Duplicate Check",
+      "description": "System checks invoice ID, vendor details, and amount against historical payments to identify duplicate payments.",
+      "type": "task",
+      "performer": "System"
+    },
+    {
+      "id": "activity_6",
+      "name": "Payment Processing",
+      "description": "Approved invoice is released to AP system for payment. Notification sent to vendor.",
+      "type": "task",
+      "performer": "AP System"
+    }
+  ],
+  "risks": [
+    {
+      "id": "risk_1",
+      "name": "Incomplete or Illegible Invoices",
+      "description": "Invoices received may be incomplete, illegible, or missing crucial information, leading to delays in processing and potential payment errors.",
+      "level": "Medium",
+      "category": "Operational Risk",
+      "impact": "Medium"
+    },
+    {
+      "id": "risk_2",
+      "name": "Invoice Processing Errors",
+      "description": "Human error during manual verification and approval stages can lead to incorrect invoice processing, resulting in delayed payments or incorrect payments.",
+      "level": "Medium",
+      "category": "Operational Risk",
+      "impact": "Medium"
+    },
+    {
+      "id": "risk_3",
+      "name": "System Failure",
+      "description": "Failure of the invoice processing system can disrupt the entire process, leading to significant delays and potential financial losses.",
+      "level": "Medium",
+      "category": "Operational Risk",
+      "impact": "High"
+    },
+    {
+      "id": "risk_4",
+      "name": "Fraudulent Invoices",
+      "description": "Malicious actors may submit fraudulent invoices to obtain unauthorized payments.",
+      "level": "Medium",
+      "category": "Financial Risk",
+      "impact": "High"
+    },
+    {
+      "id": "risk_5",
+      "name": "Duplicate Payments",
+      "description": "System failures or human error can lead to duplicate payments to vendors.",
+      "level": "Medium",
+      "category": "Financial Risk",
+      "impact": "Medium"
+    },
+    {
+      "id": "risk_6",
+      "name": "Non-Compliance with Payment Terms",
+      "description": "Failure to adhere to internal policies or regulatory requirements regarding invoice processing and payment can result in penalties or legal issues.",
+      "level": "Medium",
+      "category": "Compliance Risk",
+      "impact": "High"
+    }
+  ],
+  "controls": [
+    {
+      "id": "control_1",
+      "name": "Invoice Data Validation Rules",
+      "description": "System rules to check for completeness and accuracy of invoice data during input (step 1) and validation (step 2).",
+      "type": "Preventive",
+      "frequency": "Per Transaction",
+      "owner": ""
+    },
+    {
+      "id": "control_2",
+      "name": "Three-Way Matching Process",
+      "description": "Automated system check (step 3) comparing invoice, purchase order, and goods receipt note to identify discrepancies.",
+      "type": "Preventive",
+      "frequency": "Per Transaction",
+      "owner": ""
+    },
+    {
+      "id": "control_3",
+      "name": "Multi-Level Approval Workflow",
+      "description": "Threshold-based approval routing (step 4) ensures appropriate authorization based on invoice amount.",
+      "type": "Preventive",
+      "frequency": "Per Transaction",
+      "owner": ""
+    },
+    {
+      "id": "control_4",
+      "name": "Duplicate Invoice Detection System",
+      "description": "System check (step 5) compares invoice details against historical payments to identify duplicates.",
+      "type": "Detective",
+      "frequency": "Per Transaction",
+      "owner": ""
+    },
+    {
+      "id": "control_5",
+      "name": "Regular System Backups and Disaster Recovery Plan",
+      "description": "Regular backups and a disaster recovery plan to minimize the impact of system failures.",
+      "type": "Preventive",
+      "frequency": "Ad-hoc",
+      "owner": ""
+    },
+    {
+      "id": "control_6",
+      "name": "Audit Trail and Monitoring",
+      "description": "Maintaining a detailed audit trail of all invoice processing activities for monitoring and review.",
+      "type": "Detective",
+      "frequency": "Ad-hoc",
+      "owner": ""
+    },
+    {
+      "id": "control_7",
+      "name": "Segregation of Duties",
+      "description": "Different individuals handle invoice receipt, validation, approval, and payment to prevent fraud and errors.",
+      "type": "Preventive",
+      "frequency": "Ad-hoc",
+      "owner": ""
+    }
+  ]
+}

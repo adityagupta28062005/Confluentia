@@ -1,0 +1,74 @@
+{
+  "found_processes": true,
+  "process_count": 2,
+  "processes": [
+    {
+      "process_name": "Invoice Processing and Approval",
+      "process_description": "This process manages the receipt, validation, and payment of all third-party invoices, including intake, initial validation, three-way match against PO and GRN, threshold-based approval routing, duplicate payment check, and ends with payment processing and vendor notification.",
+      "process_map_bpmn_xml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<bpmn:definitions ... >...</bpmn:definitions>\n",
+      "risk_taxonomy": [
+        {
+          "category": "Fraud Risk",
+          "risk_name": "Fraudulent Invoice Submission",
+          "description": "Risk that invoices submitted are not for valid, authorized goods and services."
+        },
+        {
+          "category": "Operational Risk",
+          "risk_name": "Duplicate Payments",
+          "description": "Risk that duplicate payments are made to vendors due to repeated or erroneous invoice entries."
+        }
+      ],
+      "controls": [
+        {
+          "control_name": "Three-way Match",
+          "control_type": "Preventive",
+          "description": "System automatically initiates a three-way match by cross-referencing the invoice against the corresponding Purchase Order (PO) and Goods Receipt Note (GRN). Any discrepancies trigger an immediate hold and manual review by the AP Supervisor."
+        },
+        {
+          "control_name": "Systemic Duplicate Payment Check",
+          "control_type": "Automated",
+          "description": "Prior to final payment, the system runs a Systemic Duplicate Payment Check by cross-referencing the invoice ID, vendor details, and amount against all historical payments."
+        }
+      ]
+    },
+    {
+      "process_name": "Vendor Onboarding and Due Diligence",
+      "process_description": "This process covers the formal onboarding of new vendors, including application submission, initial compliance screening, enhanced due diligence, risk tier categorization, system registration, and contract execution leading to activation in the Vendor Management System.",
+      "process_map_bpmn_xml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<bpmn:definitions ... >...</bpmn:definitions>\n",
+      "risk_taxonomy": [
+        {
+          "category": "Operational Risk",
+          "risk_name": "Incomplete Documentation",
+          "description": "Risk that vendors submit incomplete applications, leading to delays or errors in onboarding."
+        },
+        {
+          "category": "Compliance Risk",
+          "risk_name": "Lack of Due Diligence",
+          "description": "Risk that insufficient due diligence exposes the firm to legal liabilities and reputational damage."
+        },
+        {
+          "category": "Reputational Risk",
+          "risk_name": "Negative Vendor Association",
+          "description": "Risk that association with high-risk vendors could harm the firm's reputation."
+        }
+      ],
+      "controls": [
+        {
+          "control_name": "Initial Screening Control",
+          "control_type": "Preventive",
+          "description": "Compliance team reviews submitted documents to prevent incomplete documentation."
+        },
+        {
+          "control_name": "Enhanced Due Diligence Control",
+          "control_type": "Preventive",
+          "description": "All new vendors are subjected to enhanced due diligence, including verification of company registration, financial health, sanctions screening, and adverse media assessment."
+        },
+        {
+          "control_name": "Vendor Categorization Control",
+          "control_type": "Preventive",
+          "description": "Vendors are categorized into risk tiers based on due diligence findings, dictating frequency of future reviews and mitigating negative vendor association risk."
+        }
+      ]
+    }
+  ]
+}

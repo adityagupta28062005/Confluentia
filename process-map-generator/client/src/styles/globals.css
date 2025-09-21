@@ -4,129 +4,129 @@
 
 /* Custom styles */
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+        sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+        monospace;
 }
 
 /* Custom component styles */
 .upload-zone {
-  @apply border-2 border-dashed border-gray-300 rounded-lg p-8 text-center cursor-pointer transition-colors;
+    @apply border-2 border-dashed border-gray-300 rounded-lg p-8 text-center cursor-pointer transition-colors;
 }
 
 .upload-zone:hover {
-  @apply border-blue-400 bg-blue-50;
+    @apply border-blue-400 bg-blue-50;
 }
 
 .upload-zone.dragover {
-  @apply border-blue-500 bg-blue-100;
+    @apply border-blue-500 bg-blue-100;
 }
 
 .btn-primary {
-  @apply bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition-colors;
+    @apply bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition-colors;
 }
 
 .btn-secondary {
-  @apply bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium py-2 px-4 rounded-lg transition-colors;
+    @apply bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium py-2 px-4 rounded-lg transition-colors;
 }
 
 .btn-success {
-  @apply bg-green-600 hover:bg-green-700 text-white font-medium py-2 px-4 rounded-lg transition-colors;
+    @apply bg-green-600 hover:bg-green-700 text-white font-medium py-2 px-4 rounded-lg transition-colors;
 }
 
 .btn-danger {
-  @apply bg-red-600 hover:bg-red-700 text-white font-medium py-2 px-4 rounded-lg transition-colors;
+    @apply bg-red-600 hover:bg-red-700 text-white font-medium py-2 px-4 rounded-lg transition-colors;
 }
 
 .card {
-  @apply bg-white rounded-lg shadow-md p-6;
+    @apply bg-white rounded-lg shadow-md p-6;
 }
 
 .card-header {
-  @apply border-b border-gray-200 pb-4 mb-4;
+    @apply border-b border-gray-200 pb-4 mb-4;
 }
 
 .badge {
-  @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
 }
 
 .badge-primary {
-  @apply bg-blue-100 text-blue-800;
+    @apply bg-blue-100 text-blue-800;
 }
 
 .badge-success {
-  @apply bg-green-100 text-green-800;
+    @apply bg-green-100 text-green-800;
 }
 
 .badge-warning {
-  @apply bg-yellow-100 text-yellow-800;
+    @apply bg-yellow-100 text-yellow-800;
 }
 
 .badge-danger {
-  @apply bg-red-100 text-red-800;
+    @apply bg-red-100 text-red-800;
 }
 
 .loading-spinner {
-  @apply inline-block animate-spin rounded-full h-4 w-4 border-b-2 border-white;
+    @apply inline-block animate-spin rounded-full h-4 w-4 border-b-2 border-white;
 }
 
 /* Process step styles */
 .process-step {
-  @apply relative bg-white border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow;
+    @apply relative bg-white border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow;
 }
 
 .process-step::before {
-  @apply absolute left-4 top-0 w-px h-full bg-gray-200;
-  content: '';
-  transform: translateY(-100%);
+    @apply absolute left-4 top-0 w-px h-full bg-gray-200;
+    content: '';
+    transform: translateY(-100%);
 }
 
 .process-step:first-child::before {
-  display: none;
+    display: none;
 }
 
 .step-number {
-  @apply absolute -left-3 top-4 w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-medium;
+    @apply absolute -left-3 top-4 w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-medium;
 }
 
 /* Risk and control cards */
 .risk-card {
-  @apply border-l-4 border-red-400 bg-red-50 p-4 rounded-r-lg;
+    @apply border-l-4 border-red-400 bg-red-50 p-4 rounded-r-lg;
 }
 
 .control-card {
-  @apply border-l-4 border-green-400 bg-green-50 p-4 rounded-r-lg;
+    @apply border-l-4 border-green-400 bg-green-50 p-4 rounded-r-lg;
 }
 
 /* BPMN container styles */
 .bpmn-container {
-  @apply bg-white border border-gray-200 rounded-lg overflow-hidden;
-  min-height: 400px;
+    @apply bg-white border border-gray-200 rounded-lg overflow-hidden;
+    min-height: 400px;
 }
 
 .bpmn-canvas {
-  width: 100%;
-  height: 100%;
+    width: 100%;
+    height: 100%;
 }
 
 /* Responsive utilities */
 @media (max-width: 640px) {
-  .card {
-    @apply p-4;
-  }
-  
-  .btn-primary,
-  .btn-secondary,
-  .btn-success,
-  .btn-danger {
-    @apply py-3 px-6 text-sm;
-  }
+    .card {
+        @apply p-4;
+    }
+
+    .btn-primary,
+    .btn-secondary,
+    .btn-success,
+    .btn-danger {
+        @apply py-3 px-6 text-sm;
+    }
 }

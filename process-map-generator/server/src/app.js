@@ -10,9 +10,9 @@ const app = express();
 
 // CORS configuration
 const corsOptions = {
-  origin: process.env.CLIENT_URL || 'http://localhost:3000',
-  credentials: true,
-  optionsSuccessStatus: 200
+    origin: process.env.CLIENT_URL || 'http://localhost:3000',
+    credentials: true,
+    optionsSuccessStatus: 200
 };
 
 // Middleware
@@ -25,17 +25,17 @@ app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
 
 // Request logging
 app.use((req, res, next) => {
-  logger.info(`${req.method} ${req.path} - ${req.ip}`);
-  next();
+    logger.info(`${req.method} ${req.path} - ${req.ip}`);
+    next();
 });
 
 // Health check
 app.get('/health', (req, res) => {
-  res.json({ 
-    status: 'OK', 
-    timestamp: new Date().toISOString(),
-    uptime: process.uptime()
-  });
+    res.json({
+        status: 'OK',
+        timestamp: new Date().toISOString(),
+        uptime: process.uptime()
+    });
 });
 
 // API routes
@@ -43,10 +43,10 @@ app.use('/api', routes);
 
 // 404 handler
 app.use('*', (req, res) => {
-  res.status(404).json({ 
-    error: 'Route not found',
-    path: req.originalUrl
-  });
+    res.status(404).json({
+        error: 'Route not found',
+        path: req.originalUrl
+    });
 });
 
 // Global error handler
