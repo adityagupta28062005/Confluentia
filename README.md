@@ -14,7 +14,7 @@ An intelligent AI-powered system that transforms business documents into profess
 ## 🎯 MVP SUBMISSION & SHOWCASE
 
 ### 📌 **Working MVP (Hosted Project)**
-🌐 **Live Demo**: [https://confluentia-frontend.onrender.com](https://confluentiafrontend.onrender.com/)
+🌐 **Live Demo**: [[https://confluentia-frontend.onrender.com](https://confluentiafrontend.onrender.com/)](https://confluentiafrontend.onrender.com/)
 🔗 **Backend API**: [https://confluentia-1.onrender.com](https://confluentia-1.onrender.com)
 
 ### 📁 **Repository & Documentation**
@@ -324,4 +324,5 @@ MIT License - Open source and available for educational and commercial use.
 ---
 
 **Built with ❤️ by the Confluentia team for IIT BHU Hackathon 2025**
+
 
